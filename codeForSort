@@ -1,0 +1,151 @@
+-----------------To sort the dates in the given JSON--------------------------
+
+
+var readObj = [{
+	"TransactionDate": "2022-05-12 01:21:22",
+	"Name": "John",
+	"Department": "HSC",
+	"Debit": "6453.99",
+	"Credit": "672.99",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-02-21 01:44:00",
+	"Name": "Peter",
+	"Department": "HSC",
+	"Debit": "7623.22",
+	"Credit": "341.8",
+	"Valid": true
+},
+{
+	"TransactionDate": "2022-12-01 01:21:22",
+	"Name": "George",
+	"Department": "MANK",
+	"Debit": "9823.11",
+	"Credit": "9835.33",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-05-14 01:21:22",
+	"Name": "Thomson",
+	"Department": "HSC",
+	"Debit": "984.99",
+	"Credit": "672.99",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-02-26 01:44:00",
+	"Name": "Cathy",
+	"Department": "HSC",
+	"Debit": "5623.22",
+	"Credit": "341.8",
+	"Valid": true
+},
+{
+	"TransactionDate": "2022-12-15 01:21:22",
+	"Name": "Joseph",
+	"Department": "MANK",
+	"Debit": "6454.11",
+	"Credit": "9835.33",
+	"Valid": false
+}]
+var sortedObj = readObj.sort((a,b)=>new Date(a.TransactionDate)-new Date(b.TransactionDate));
+console.log(sortedObj);
+
+
+
+
+
+
+
+
+
+---------------------------To retrive only valid :false data from the JSON---------------------------
+  var data = [{
+	"TransactionDate": "2022-05-12 01:21:22",
+	"Name": "John",
+	"Department": "HSC",
+	"Debit": "6453.99",
+	"Credit": "672.99",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-02-21 01:44:00",
+	"Name": "Peter",
+	"Department": "HSC",
+	"Debit": "7623.22",
+	"Credit": "341.8",
+	"Valid": true
+},
+{
+	"TransactionDate": "2022-12-01 01:21:22",
+	"Name": "George",
+	"Department": "MANK",
+	"Debit": "9823.11",
+	"Credit": "9835.33",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-05-14 01:21:22",
+	"Name": "Thomson",
+	"Department": "HSC",
+	"Debit": "984.99",
+	"Credit": "672.99",
+	"Valid": false
+},
+{
+	"TransactionDate": "2022-02-26 01:44:00",
+	"Name": "Cathy",
+	"Department": "HSC",
+	"Debit": "5623.22",
+	"Credit": "341.8",
+	"Valid": true
+},
+{
+	"TransactionDate": "2022-12-15 01:21:22",
+	"Name": "Joseph",
+	"Department": "MANK",
+	"Debit": "6454.11",
+	"Credit": "9835.33",
+	"Valid": false
+}]
+
+var result = data.filter(x => x.Valid === false);
+console.log(result);
+
+
+
+-----------------------------To sum the debit and credit from only the valid false json ------------------------
+var data = [{
+TransactionDate: '2022-05-12 01:21:22',
+    Name: 'John',
+    Department: 'HSC',
+    Debit: '6453.99',
+    Credit: '672.99',
+    Valid: false },
+  { TransactionDate: '2022-12-01 01:21:22',
+    Name: 'George',
+    Department: 'MANK',
+    Debit: '9823.11',
+    Credit: '9835.33',
+    Valid: false },
+  { TransactionDate: '2022-05-14 01:21:22',
+    Name: 'Thomson',
+    Department: 'HSC',
+    Debit: '984.99',
+    Credit: '672.99',
+    Valid: false },
+  { TransactionDate: '2022-12-15 01:21:22',
+    Name: 'Joseph',
+    Department: 'MANK',
+    Debit: '6454.11',
+    Credit: '9835.33',
+    Valid: false } ]
+//var res = data.map(bill => bill.Debit)//.reduce((acc, amount) => acc + amount);
+//console.log(res)
+//console.log(data.sum('Credit'));
+const sumDebit = data.map(item => parseFloat(item.Debit)).reduce((prev, curr) => prev + curr, 0);
+console.log(sumDebit);
+
+const sumCredit = data.map(item => parseFloat(item.Credit)).reduce((prev, curr) => prev + curr, 0);
+console.log(sumCredit);
